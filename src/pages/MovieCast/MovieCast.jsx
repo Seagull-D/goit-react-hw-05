@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import fetchMovies from "../../services/api";
-import s from "./MovieDetailsPage.module.css";
+import s from "./MovieCast.module.css";
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState([]);
