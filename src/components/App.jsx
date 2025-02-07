@@ -1,23 +1,19 @@
-
-import './App.css'
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Header from "./Header/Header";
+import Hero from "../pages/Hero/Hero";
+import Movies from "../pages/Movies/Movies";
 
 const App = () => {
-  return (
-    <>
-      <Profile
-        name={userData.username}
-        tag={userData.tag}
-        location={userData.location}
-        image={userData.avatar} 
-        stats={userData.stats}
-      />
-      <FriendList friends={friends } />
-      <TransactionHistory transactions = {transactions} />
-    </>
-  );
+  return (
+    <main>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Hero />}></Route>
+        <Route path="/movies" element={<Movies />}></Route>
+      </Routes>
+    </main>
+  );
 };
 
-
-
-
-export default App
+export default App;

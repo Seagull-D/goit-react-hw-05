@@ -1,0 +1,6 @@
+.heloSection {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(204, 243, 243);
+  height: 100vh;
+}
