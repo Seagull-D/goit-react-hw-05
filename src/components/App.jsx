@@ -3,7 +3,7 @@ import "./App.css";
 import Header from "./Header/Header";
 import Hero from "../pages/Hero/Hero";
 import Movies from "../pages/Movies/Movies";
-import MovieDetails from "../pages/MovieDetails/MovieDetails";
+import MovieDetails from "../pages/MovieDetailsPage/MovieDetailsPage";
 
 const App = () => {
   return (
