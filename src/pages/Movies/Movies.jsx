@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import fetchMovies from "../../services/api";
 import MoviesList from "../../components/MoviesList/MoviesList";
+
 const Movies = () => {
   const [query, setQuery] = useState("");
   const [movies, setmovies] = useState([]);

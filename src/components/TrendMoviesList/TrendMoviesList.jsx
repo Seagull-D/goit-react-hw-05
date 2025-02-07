@@ -7,7 +7,7 @@ const TrendMoviesList = ({ trendMovies }) => {
       <ul>
         {trendMovies.map((movie) => (
           <li className={s.iteamContainer} key={movie.id}>
-            <Link to={movie.id}>{movie.title}</Link>
+            <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
             <p className={s.rating}>rating {movie.vote_average}</p>
           </li>
         ))}
