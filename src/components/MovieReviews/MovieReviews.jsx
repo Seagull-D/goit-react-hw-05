@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import fetchMovies from "../../services/api";
 import { useParams } from "react-router-dom";
 import s from "./MovieReviews.module.css";
+import toast from "react-hot-toast";
 const MovieReviews = () => {
   const { movieId } = useParams();
   const [revievs, setRevievs] = useState([]);
@@ -10,9 +11,21 @@ const MovieReviews = () => {
   useEffect(() => {
     const getData = async () => {
       if (!movieId) return;
-
-      const data = await fetchMovies("", movieId);
-      setRevievs(data.reviews.results || []);
+      try {
+        const data = await fetchMovies("", movieId);
+        setRevievs(data.reviews.results || []);
+      } catch (error) {
+        toast("Something wrong, try again later", {
+          icon: "X",
+          style: {
+            borderRadius: "10px",
+            background: "red",
+            color: "#fff",
+          },
+          position: "top-left",
+        });
+        console.error(error);
+      }
     };
 
     getData();

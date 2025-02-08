@@ -8,7 +8,7 @@ const MovieDetails = () => {
   const [movie, setMovie] = useState([]);
   const { movieId } = useParams();
   const location = useLocation();
-  const gobackURL = useRef(location.state);
+  const gobackURL = useRef(location?.state ?? "/");
 
   const buildLinkClass = ({ isActive }) => {
     return clsx(s.link, isActive && s.active);

@@ -11,7 +11,7 @@ const SearchBar = ({ request }) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    if (!query) {
+    if (!query || "") {
       toast("I'm waiting for your request", {
         icon: "👏",
         style: {
