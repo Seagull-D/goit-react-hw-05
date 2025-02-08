@@ -25,6 +25,15 @@ const fetchMovies = async (request, movieId) => {
     );
     daily = TrendDayMovies.data.results;
   } catch (error) {
+    toast("Something wrong, try again later", {
+      icon: "X",
+      style: {
+        borderRadius: "10px",
+        background: "red",
+        color: "#fff",
+      },
+      position: "top-left",
+    });
     console.error("Error fetching daily trends:", error);
   }
   if (request) {
@@ -35,15 +44,6 @@ const fetchMovies = async (request, movieId) => {
       );
       moviesList = movies.data.results;
     } catch (error) {
-      toast("Something wrong, try again later", {
-        icon: "X",
-        style: {
-          borderRadius: "10px",
-          background: "red",
-          color: "#fff",
-        },
-        position: "top-left",
-      });
       console.error("Error fetching movies:", error);
     }
   }

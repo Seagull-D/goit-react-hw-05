@@ -20,14 +20,18 @@ const MovieReviews = () => {
 
   return (
     <div>
-      <ul className={s.revList}>
-        {revievs.map((review) => (
-          <li className={s.revItrem} key={review.id}>
-            <h2>{review.author}</h2>
-            <p>{review.content}</p>
-          </li>
-        ))}
-      </ul>
+      {revievs.length === 0 ? (
+        <p>No reviews available.</p>
+      ) : (
+        <ul className={s.revList}>
+          {revievs.map((review) => (
+            <li className={s.revItrem} key={review.id}>
+              <h2>{review.author}</h2>
+              <p>{review.content}</p>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

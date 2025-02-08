@@ -7,7 +7,7 @@ import MovieDetails from "../pages/MovieDetailsPage/MovieDetailsPage";
 import MovieCast from "./MovieCast/MovieCast";
 import MovieReviews from "./MovieReviews/MovieReviews";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
-import { Toaster, toast } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (

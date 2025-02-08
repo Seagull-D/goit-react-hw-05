@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Outlet, useParams } from "react-router-dom";
+import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import fetchMovies from "../../services/api";
 import s from "./MovieDetailsPage.module.css";
 import { NavLink } from "react-router-dom";
@@ -7,6 +7,8 @@ import { clsx } from "clsx";
 const MovieDetails = () => {
   const [movie, setMovie] = useState([]);
   const { movieId } = useParams();
+  const location = useLocation();
+
   const buildLinkClass = ({ isActive }) => {
     return clsx(s.link, isActive && s.active);
   };
@@ -21,6 +23,7 @@ const MovieDetails = () => {
 
   return (
     <div>
+      <Link to={location.state}>Go Back</Link>
       <div className={s.wraper}>
         <img
           className={s.movieImg}

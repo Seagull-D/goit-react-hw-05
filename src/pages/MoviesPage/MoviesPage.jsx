@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import fetchMovies from "../../services/api";
 import MoviesList from "../../components/MoviesList/MoviesList";
-import "react-toastify/dist/ReactToastify.css";
 
 const Movies = () => {
   const [query, setQuery] = useState("");
