@@ -14,7 +14,8 @@ const options = {
 const fetchMovies = async (request, movieId) => {
   let daily = [];
   let moviesList = [];
-  let movieCard = [];
+  let movieCard = null;
+  let credits = null;
 
   try {
     const TrendDayMovies = await axios.get(
@@ -25,15 +26,16 @@ const fetchMovies = async (request, movieId) => {
   } catch (error) {
     console.error("Error fetching daily trends:", error);
   }
-
-  try {
-    const movies = await axios.get(
-      `${URL}search/movie?query=${request}&include_adult=true&language=en-US&page=1`,
-      options
-    );
-    moviesList = movies.data.results;
-  } catch (error) {
-    console.error("Error fetching movies:", error);
+  if (request) {
+    try {
+      const movies = await axios.get(
+        `${URL}search/movie?query=${request}&include_adult=true&language=en-US&page=1`,
+        options
+      );
+      moviesList = movies.data.results;
+    } catch (error) {
+      console.error("Error fetching movies:", error);
+    }
   }
 
   if (movieId) {
@@ -48,8 +50,20 @@ const fetchMovies = async (request, movieId) => {
       console.error("Error fetching movie:", error);
     }
   }
+  if (movieId) {
+    try {
+      const credit = await axios.get(
+        `https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`,
 
-  return { daily, moviesList, movieCard };
+        options
+      );
+      credits = credit.data;
+    } catch (error) {
+      console.error("Error fetching movie:", error);
+    }
+  }
+
+  return { daily, moviesList, movieCard, credits };
 };
 
 export default fetchMovies;
