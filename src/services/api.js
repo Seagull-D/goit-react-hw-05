@@ -16,7 +16,7 @@ const fetchMovies = async (request, movieId) => {
   let moviesList = [];
   let movieCard = null;
   let credits = null;
-
+  let reviews = null;
   try {
     const TrendDayMovies = await axios.get(
       `${URL}trending/movie/day?language=en-US`,
@@ -41,7 +41,7 @@ const fetchMovies = async (request, movieId) => {
   if (movieId) {
     try {
       const movie = await axios.get(
-        `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
+        `${URL}movie/${movieId}?language=en-US`,
 
         options
       );
@@ -53,7 +53,7 @@ const fetchMovies = async (request, movieId) => {
   if (movieId) {
     try {
       const credit = await axios.get(
-        `https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`,
+        `${URL}movie/${movieId}/credits?language=en-US`,
 
         options
       );
@@ -62,8 +62,20 @@ const fetchMovies = async (request, movieId) => {
       console.error("Error fetching movie:", error);
     }
   }
+  if (movieId) {
+    try {
+      const credit = await axios.get(
+        `${URL}movie/${movieId}/reviews?language=en-US`,
 
-  return { daily, moviesList, movieCard, credits };
+        options
+      );
+      reviews = credit.data;
+    } catch (error) {
+      console.error("Error fetching movie:", error);
+    }
+  }
+
+  return { daily, moviesList, movieCard, credits, reviews };
 };
 
 export default fetchMovies;

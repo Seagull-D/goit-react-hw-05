@@ -46,9 +46,15 @@ const MovieDetails = () => {
           </li>
         </ul>
       </div>
-      <NavLink className={buildLinkClass} to="cast">
-        Custs
-      </NavLink>
+      <div className={s.detailsLink}>
+        <NavLink className={buildLinkClass} to="cast">
+          Custs
+        </NavLink>
+
+        <NavLink className={buildLinkClass} to="revievs">
+          Revievs
+        </NavLink>
+      </div>
       <div>
         <Outlet />
       </div>
