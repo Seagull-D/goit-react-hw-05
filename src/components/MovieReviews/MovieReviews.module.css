@@ -3,6 +3,7 @@
   padding: 20px;
   padding-top: 0;
   flex-direction: column;
+  justify-content: start;
 }
 
 .revItrem {

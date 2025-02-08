@@ -1,4 +1,5 @@
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const URL = "https://api.themoviedb.org/3/";
 const TOKEN =
@@ -13,7 +14,7 @@ const options = {
 
 const fetchMovies = async (request, movieId) => {
   let daily = [];
-  let moviesList = [];
+  let moviesList = null;
   let movieCard = null;
   let credits = null;
   let reviews = null;
@@ -34,6 +35,15 @@ const fetchMovies = async (request, movieId) => {
       );
       moviesList = movies.data.results;
     } catch (error) {
+      toast("Something wrong, try again later", {
+        icon: "X",
+        style: {
+          borderRadius: "10px",
+          background: "red",
+          color: "#fff",
+        },
+        position: "top-left",
+      });
       console.error("Error fetching movies:", error);
     }
   }
@@ -64,12 +74,12 @@ const fetchMovies = async (request, movieId) => {
   }
   if (movieId) {
     try {
-      const credit = await axios.get(
+      const reviev = await axios.get(
         `${URL}movie/${movieId}/reviews?language=en-US`,
 
         options
       );
-      reviews = credit.data;
+      reviews = reviev.data;
     } catch (error) {
       console.error("Error fetching movie:", error);
     }

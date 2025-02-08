@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import fetchMovies from "../../services/api";
 import MoviesList from "../../components/MoviesList/MoviesList";
+import "react-toastify/dist/ReactToastify.css";
 
 const Movies = () => {
   const [query, setQuery] = useState("");
@@ -9,6 +10,7 @@ const Movies = () => {
 
   useEffect(() => {
     if (!query) return;
+
     const getData = async () => {
       const data = await fetchMovies(query);
       setmovies(data.moviesList);
