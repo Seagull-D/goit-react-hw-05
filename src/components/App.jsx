@@ -10,8 +10,8 @@ import MovieReviews from "./MovieReviews/MovieReviews";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import { Toaster } from "react-hot-toast";
 
-const Hero = lazy(() => import("../pages/Hero/Hero"));
-const Movies = lazy(() => import("../pages/MoviesPage/MoviesPage"));
+const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
+const MoviesPage = lazy(() => import("../pages/MoviesPage/MoviesPage"));
 const App = () => {
   return (
     <main>
@@ -19,11 +19,11 @@ const App = () => {
       <Navigation />
       <Suspense fallback={<p>Loading...</p>}></Suspense>
       <Routes>
-        <Route path="/" element={<Hero />}></Route>
-        <Route path="/movies" element={<Movies />}></Route>
+        <Route path="/" element={<HomePage />}></Route>
+        <Route path="/movies" element={<MoviesPage />}></Route>
         <Route path="/movies/:movieId" element={<MovieDetails />}>
           <Route path="/movies/:movieId/cast" element={<MovieCast />} />
-          <Route path="/movies/:movieId/revievs" element={<MovieReviews />} />
+          <Route path="/movies/:movieId/reviews" element={<MovieReviews />} />
         </Route>
         <Route path="*" element={<NotFoundPage />}></Route>
       </Routes>

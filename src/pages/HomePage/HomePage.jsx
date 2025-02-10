@@ -2,7 +2,7 @@ import TrendMoviesList from "../../components/TrendMoviesList/TrendMoviesList";
 import fetchMovies from "../../services/api";
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
-import s from "./Hero.module.css";
+import s from "./HomePage.module.css";
 const Hero = () => {
   const [trendMovies, setTrendMovies] = useState([]);
   useEffect(() => {

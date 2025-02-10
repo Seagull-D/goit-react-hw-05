@@ -55,7 +55,7 @@ const MovieDetails = () => {
           Custs
         </NavLink>
 
-        <NavLink className={buildLinkClass} to="revievs">
+        <NavLink className={buildLinkClass} to="reviews">
           Revievs
         </NavLink>
       </div>

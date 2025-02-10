@@ -3,10 +3,11 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import fetchMovies from "../../services/api";
 import MoviesList from "../../components/MoviesList/MoviesList";
 import toast from "react-hot-toast";
+import { useSearchParams } from "react-router-dom";
 const Movies = () => {
-  const [query, setQuery] = useState("");
   const [movies, setmovies] = useState([]);
-
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get("query");
   useEffect(() => {
     if (!query) return;
 
@@ -31,7 +32,8 @@ const Movies = () => {
     getData();
   }, [query]);
   const handleSetQuery = (newQuery) => {
-    setQuery(newQuery);
+    searchParams.set("query", newQuery);
+    setSearchParams(searchParams);
   };
   console.log(movies);
 
