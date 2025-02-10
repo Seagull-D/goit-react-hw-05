@@ -1,4 +1,4 @@
-import TrendMoviesList from "../../components/TrendMoviesList/TrendMoviesList";
+import MovieList from "../../components/MovieList/MovieList";
 import fetchMovies from "../../services/api";
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
@@ -28,7 +28,7 @@ const Hero = () => {
   console.log(trendMovies);
   return (
     <section className={s.heloSection}>
-      <TrendMoviesList trendMovies={trendMovies} />
+      <MovieList trendMovies={trendMovies} />
     </section>
   );
 };

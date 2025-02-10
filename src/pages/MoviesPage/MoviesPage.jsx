@@ -5,7 +5,7 @@ import MoviesList from "../../components/MoviesList/MoviesList";
 import toast from "react-hot-toast";
 import { useSearchParams } from "react-router-dom";
 const Movies = () => {
-  const [movies, setmovies] = useState([]);
+  const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("query");
   useEffect(() => {
@@ -14,7 +14,7 @@ const Movies = () => {
     const getData = async () => {
       try {
         const data = await fetchMovies(query);
-        setmovies(data.moviesList);
+        setMovies(data.moviesList);
       } catch (error) {
         toast("Something wrong, try again later", {
           icon: "X",

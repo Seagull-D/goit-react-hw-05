@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import s from "./TrendMoviesList.module.css";
+import s from "./MovieList.module.css";
 const TrendMoviesList = ({ trendMovies }) => {
   const location = useLocation();
   return (
